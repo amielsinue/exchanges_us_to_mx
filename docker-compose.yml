@@ -1,0 +1,49 @@
+version: '3.1'
+
+services:
+
+  app:
+    links:
+      - db
+      - redisdb
+    depends_on:
+      - db
+      - redisdb
+    build:
+      context: ./
+    ports:
+      - "5000:5000"
+    env_file: .env
+    command: python main.py
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=us-mx
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=us-mx
+
+  redisdb:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+
+  tests:
+    build:
+      context: ./
+    environment:
+      - DB_DATABASE_URI=sqlite:////tmp/test.db
+    command: pytest
+
+#  db_test:
+#    image: postgres
+#    restart: always
+#    ports:
+#      - "5433:5432"
+#    environment:
+#      - POSTGRES_DB=tests
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=tests
