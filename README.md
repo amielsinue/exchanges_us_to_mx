@@ -31,15 +31,15 @@ How to use
 curl --location --request POST 'localhost:5000/auth/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "amielsinue@gmail.com",
-    "password": "apostoles"
+    "email": "test@mailinator.com",
+    "password": "123456789"
 }'
 ```
 Response:
 ```.env
 {
     "id": 1,
-    "email": "amielsinue@gmail.com",
+    "email": "test@mailinator.com",
     "api_token": "0315df8ae56228f77964de637659be69"
 }
 ```
@@ -50,15 +50,15 @@ you have to login whenever the error is expired token
 curl --location --request POST 'localhost:5000/auth/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "amielsinue@gmail.com",
-    "password": "apostoles"
+    "email": "test@mailinator.com",
+    "password": "123456789"
 }'
 ```
 Response:
 ```
 {
     "id": 1,
-    "email": "amielsinue@gmail.com",
+    "email": "test@mailinator.com",
     "api_token": "0315df8ae56228f77964de637659be69"
 }
 ```
