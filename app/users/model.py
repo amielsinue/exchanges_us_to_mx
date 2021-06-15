@@ -15,7 +15,7 @@ class User(db.Model):
     _password = db.Column(db.LargeBinary(120))
     _salt = db.Column(db.LargeBinary(16))
     email = db.Column(db.String(120), unique=True, nullable=False)
-    api_token = db.Column(db.String(120), nullable=True, unique=True)
+    api_token = db.Column(db.String(120), nullable=True)
     api_token_created_at = db.Column(db.DateTime(), nullable=True)
     max_requests_count = db.Column(db.Integer, nullable=False, default=10)
 
