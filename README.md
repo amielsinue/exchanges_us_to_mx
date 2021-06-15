@@ -68,4 +68,22 @@ Response:
 curl --location --request GET 'localhost:5000/exchanges' \
 --header 'Authorization: Token 69f1a68cd818112c62cb05d0cbdb4a02'
 ```
-
+Response
+```
+{
+    "rates": {
+        "diario": {
+            "last_updated": "2021-06-14T00:00:00",
+            "value": "19.8823"
+        },
+        "fixer": {
+            "last_updated": "2021-06-13T17:00:00-05:00",
+            "value": "19.8718"
+        },
+        "banxico": {
+            "last_updated": "2021-06-11T00:00:00",
+            "value": "19.8823"
+        }
+    }
+}
+```
